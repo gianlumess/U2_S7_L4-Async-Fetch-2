@@ -1,18 +1,30 @@
-const id = new URLSearchParams(window.location.search).get("imageId");
+const params = new URLSearchParams(window.location.search);
+const pexelId = params.get("pexelId");
 
-console.log(id);
+const apiKey = "RcMqM6X6vDlI0vgXQK6uR6CyXW4QhvkcPA4zdWQ24JrOm06PnDXHTMxT";
+const headers = {
+  Authorization: apiKey,
+};
+
+console.log(pexelId);
 
 window.addEventListener("DOMContentLoaded", () => {
-  fetch("https://api.pexels.com/v1/photos/" + id)
-    .then((resp) => {
-      if (resp.ok) {
-        console.log(resp);
-        return resp.json();
-      } else {
-        throw new Error("Errore nella fetch");
-      }
-    })
-    .then((imgObj) => {
+  fetch("https://api.pexels.com/v1/photos/" + pexelId, {
+    method: "GET",
+    headers: headers,
+  })
+    .then((resp) => resp.json())
+    .then((picObj) => {
+      console.log(picObj);
+
+      const img = document.createElement("img");
+      img.src = picObj.src.original;
+      img.style.maxWidth = "100%";
+      img.alt = picObj.alt;
+
       const container = document.getElementById("image-details");
+      container.appendChild(img);
+
+      document.body.style.backgroundColor = picObj.avg_color;
     });
 });

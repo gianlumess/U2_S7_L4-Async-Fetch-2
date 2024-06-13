@@ -30,6 +30,11 @@ const generateImages = (query) => {
         const card = document.createElement("div");
         card.classList.add("card", "mb-4", "shadow-sm");
 
+        const imgId = document.createElement("small");
+        imgId.classList.add("text-muted");
+        imgId.classList.add("ms-auto");
+        imgId.innerText = photo.id;
+
         const img = document.createElement("img");
         img.classList.add("card-img-top");
         img.src = photo.src.original;
@@ -38,7 +43,7 @@ const generateImages = (query) => {
         img.style.cursor = "pointer";
 
         img.addEventListener("click", () => {
-          window.location.assign("details.html");
+          window.location.assign("details.html?pexelId=" + photo.id);
         });
 
         const cardBody = document.createElement("div");
@@ -70,16 +75,11 @@ const generateImages = (query) => {
         editBtn.classList.add("btn", "btn-outline-secondary", "btn-sm");
         editBtn.innerText = "Edit";
 
-        const id = document.createElement("small");
-        id.classList.add("text-muted");
-        id.classList.add("ms-auto");
-        id.innerText = photo.id;
-
         btnGroup.appendChild(hideBtn);
         btnGroup.appendChild(editBtn);
 
         underTextSection.appendChild(btnGroup);
-        underTextSection.appendChild(id);
+        underTextSection.appendChild(imgId);
 
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
