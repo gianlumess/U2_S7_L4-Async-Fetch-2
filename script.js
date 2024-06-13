@@ -34,6 +34,18 @@ const catsImages = () => {
         img.classList.add("card-img-top");
         img.src = photo.src.original;
 
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+
+        const cardTitle = document.createElement("h5");
+        cardTitle.classList.add("card-title");
+        cardTitle.innerText = "Lorem Ipsum";
+
+        const cardText = document.createElement("p");
+        cardText.classList.add("card-text");
+        cardText.innerText =
+          "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.";
+
         const hideBtn = document.createElement("a");
         hideBtn.classList.add("btn");
         hideBtn.classList.add("btn-danger");
@@ -42,12 +54,17 @@ const catsImages = () => {
           col.remove();
         });
 
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardText);
+        cardBody.appendChild(hideBtn);
+
         card.appendChild(img);
-        card.appendChild(hideBtn);
+        card.appendChild(cardBody);
         col.appendChild(card);
         row.appendChild(col);
       });
-    });
+    })
+    .catch((err) => console.log(err));
 };
 
 const dogsImages = () => {
@@ -79,6 +96,18 @@ const dogsImages = () => {
         img.classList.add("card-img-top");
         img.src = photo.src.original;
 
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+
+        const cardTitle = document.createElement("h5");
+        cardTitle.classList.add("card-title");
+        cardTitle.innerText = "Lorem Ipsum";
+
+        const cardText = document.createElement("p");
+        cardText.classList.add("card-text");
+        cardText.innerText =
+          "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.";
+
         const hideBtn = document.createElement("a");
         hideBtn.classList.add("btn");
         hideBtn.classList.add("btn-danger");
@@ -87,12 +116,17 @@ const dogsImages = () => {
           col.remove();
         });
 
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(cardText);
+        cardBody.appendChild(hideBtn);
+
         card.appendChild(img);
-        card.appendChild(hideBtn);
+        card.appendChild(cardBody);
         col.appendChild(card);
         row.appendChild(col);
       });
-    });
+    })
+    .catch((err) => console.log(err));
 };
 const firstBtn = document.getElementById("firstBtn");
 const secondBtn = document.getElementById("secondBtn");
