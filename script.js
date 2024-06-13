@@ -28,11 +28,13 @@ const generateImages = (query) => {
         col.classList.add("col");
 
         const card = document.createElement("div");
-        card.classList.add("card");
+        card.classList.add("card", "mb-4", "shadow-sm");
 
         const img = document.createElement("img");
         img.classList.add("card-img-top");
         img.src = photo.src.original;
+        img.style.height = "200px";
+        img.style.objectFit = "cover";
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -46,23 +48,37 @@ const generateImages = (query) => {
         cardText.innerText =
           "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.";
 
-        const hideBtn = document.createElement("a");
-        hideBtn.classList.add("btn");
-        hideBtn.classList.add("btn-danger");
+        const underTextSection = document.createElement("div");
+        underTextSection.classList.add("d-flex", "justify-content-between", "align-items-center");
+
+        const btnGroup = document.createElement("div");
+        btnGroup.classList.add("btn-group");
+
+        const hideBtn = document.createElement("button");
+        hideBtn.classList.add("btn", "btn-outline-secondary", "btn-sm");
         hideBtn.innerText = "Hide";
         hideBtn.addEventListener("click", () => {
           col.remove();
         });
+
+        const editBtn = document.createElement("button");
+        editBtn.classList.add("btn", "btn-outline-secondary", "btn-sm");
+        editBtn.innerText = "Edit";
 
         const id = document.createElement("small");
         id.classList.add("text-muted");
         id.classList.add("ms-auto");
         id.innerText = photo.id;
 
+        btnGroup.appendChild(hideBtn);
+        btnGroup.appendChild(editBtn);
+
+        underTextSection.appendChild(btnGroup);
+        underTextSection.appendChild(id);
+
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
-        cardBody.appendChild(hideBtn);
-        cardBody.appendChild(id);
+        cardBody.appendChild(underTextSection);
 
         card.appendChild(img);
         card.appendChild(cardBody);
