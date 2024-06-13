@@ -54,9 +54,15 @@ const catsImages = () => {
           col.remove();
         });
 
+        const id = document.createElement("small");
+        id.classList.add("text-muted");
+        id.classList.add("ms-auto");
+        id.innerText = photo.id;
+
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         cardBody.appendChild(hideBtn);
+        cardBody.appendChild(id);
 
         card.appendChild(img);
         card.appendChild(cardBody);
@@ -116,9 +122,15 @@ const dogsImages = () => {
           col.remove();
         });
 
+        const id = document.createElement("small");
+        id.classList.add("text-muted");
+        id.classList.add("ms-auto");
+        id.innerText = photo.id;
+
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         cardBody.appendChild(hideBtn);
+        cardBody.appendChild(id);
 
         card.appendChild(img);
         card.appendChild(cardBody);
