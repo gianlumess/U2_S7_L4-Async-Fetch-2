@@ -35,6 +35,11 @@ const generateImages = (query) => {
         img.src = photo.src.original;
         img.style.height = "200px";
         img.style.objectFit = "cover";
+        img.style.cursor = "pointer";
+
+        img.addEventListener("click", () => {
+          window.location.assign("details.html");
+        });
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
