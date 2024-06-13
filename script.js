@@ -21,7 +21,7 @@ const catsImages = () => {
     .then((cats) => {
       console.log(cats.photos);
 
-      const row = document.querySelector(".row");
+      const row = document.getElementById("imgContainer");
 
       cats.photos.forEach((photo) => {
         const col = document.createElement("div");
